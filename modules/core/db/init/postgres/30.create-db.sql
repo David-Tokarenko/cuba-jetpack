@@ -48,5 +48,32 @@ values ('d022c648-dd35-f78d-6d1c-2ced0837bf6d', 1, '2020-03-01 11:14:22', 'admin
     <gender>WOMAN</gender>
 </sport>');
 
-
 -- end init DUMMY_SPORT
+
+-- start init  SEC_GROUP
+
+insert into SEC_GROUP
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, NAME)
+values ('e590618a-ddbc-9246-f101-9f253775b70a', 1, current_timestamp, 'admin', current_timestamp, 'admin', 'Competitor');
+
+-- end init SEC_GROUP
+
+-- start init SEC_CONSTRAINT
+
+insert into SEC_CONSTRAINT
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, IS_ACTIVE, GROUP_ID)
+values ('6378ac21-b2d3-19eb-12a1-e5aa3fcc3aff', 1, current_timestamp, 'admin', current_timestamp, 'db', 'all', 'dummy$Competitor', '{E}.createdBy = :session$userLogin', true, 'e590618a-ddbc-9246-f101-9f253775b70a');
+
+-- end init SEC_CONSTRAINT
+
+-- start init SEC_USER
+
+insert into SEC_USER
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS,  LOGIN, LOGIN_LC, PASSWORD, PASSWORD_ENCRYPTION, LANGUAGE_, ACTIVE, CHANGE_PASSWORD_AT_LOGON, GROUP_ID)
+values ('6a2e2d84-0dac-05a5-9f96-19c6709050ff', 1, current_timestamp, 'admin', current_timestamp, 'superUser', 'superuser', '$2a$10$IKtCY88rYLVofS8W14a6TeSapOzx1ZEN4FDVW6IsuZrd2dO7heaIa', 'bcrypt', 'ru',  true, false, '0fa2b1a5-1d68-4d69-9fbd-dff348347f93');
+
+insert into SEC_USER
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, LOGIN, LOGIN_LC, PASSWORD, PASSWORD_ENCRYPTION, LANGUAGE_, ACTIVE, CHANGE_PASSWORD_AT_LOGON, GROUP_ID)
+values ('3867d9c2-fe25-d5b5-9e0b-cab5fb7a8df5', 1, current_timestamp, 'admin', current_timestamp, 'limitedUser', 'limiteduser', '$2a$10$ogsr13lKB17PnWxRsPjMfuyLjTXlTd8fhx2Lces4jYFpGG6gtf9BS', 'bcrypt', 'ru', true, false, 'e590618a-ddbc-9246-f101-9f253775b70a');
+
+-- end init SEC_USER
