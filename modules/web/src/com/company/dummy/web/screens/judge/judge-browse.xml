@@ -5,7 +5,7 @@
     <data>
         <collection id="judgesDc"
                     class="com.company.dummy.entity.Judge"
-                    view="browse">
+                    view="judge-browse">
             <loader id="judgesDl">
                 <query>
                     <![CDATA[select e from dummy$Judge e]]>
@@ -14,7 +14,7 @@
         </collection>
         <instance id="judgeDc"
                   class="com.company.dummy.entity.Judge"
-                  view="edit">
+                  view="judge-edit">
             <loader/>
         </instance>
         <collection id="sportsDc" class="com.company.dummy.entity.Sport" view="_minimal">

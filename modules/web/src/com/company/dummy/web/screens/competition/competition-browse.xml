@@ -6,7 +6,7 @@
     <data readOnly="true">
         <collection id="competitionsDc"
                     class="com.company.dummy.entity.Competition"
-                    view="browse">
+                    view="competition-browse">
             <loader id="competitionsDl">
                 <query>
                     <![CDATA[select e from dummy$Competition e]]>

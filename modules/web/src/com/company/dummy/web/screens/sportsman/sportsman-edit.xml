@@ -6,7 +6,7 @@
     <data>
         <instance id="sportsmanDc"
                   class="com.company.dummy.entity.Sportsman"
-                  view="edit">
+                  view="sportsman-edit">
             <loader/>
         </instance>
         <collection id="countriesDc" class="com.company.dummy.entity.Country" view="_minimal">

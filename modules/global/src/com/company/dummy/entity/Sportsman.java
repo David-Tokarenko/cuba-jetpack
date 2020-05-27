@@ -1,8 +1,11 @@
 package com.company.dummy.entity;
 
+import com.haulmont.chile.core.annotations.NamePattern;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@NamePattern("%s|name,team")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("100")
 @Table(name = "DUMMY_SPORTSMAN")
@@ -43,5 +46,4 @@ public class Sportsman extends Competitor {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-
 }

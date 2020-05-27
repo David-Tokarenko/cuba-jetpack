@@ -6,7 +6,7 @@
     <data>
         <instance id="competitionDc"
                   class="com.company.dummy.entity.Competition"
-                  view="edit">
+                  view="competition-edit">
             <loader/>
         </instance>
     </data>

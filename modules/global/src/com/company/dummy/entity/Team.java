@@ -1,8 +1,11 @@
 package com.company.dummy.entity;
 
+import com.haulmont.chile.core.annotations.NamePattern;
+
 import javax.persistence.*;
 import java.util.List;
 
+@NamePattern("%s|name,country")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
 @DiscriminatorValue("200")
 @Table(name = "DUMMY_TEAM")

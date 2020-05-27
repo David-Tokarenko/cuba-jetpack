@@ -6,7 +6,7 @@
     <data readOnly="true">
         <collection id="sportsmenDc"
                     class="com.company.dummy.entity.Sportsman"
-                    view="browse">
+                    view="sportsman-browse">
             <loader id="sportsmenDl">
                 <query>
                     <![CDATA[select e from dummy$Sportsman e]]>

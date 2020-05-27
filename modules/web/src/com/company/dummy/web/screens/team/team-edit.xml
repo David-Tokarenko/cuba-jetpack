@@ -6,47 +6,69 @@
     <data>
         <instance id="teamDc"
                   class="com.company.dummy.entity.Team"
-                  view="edit">
-            <loader/>
+                  view="team-edit">
+            <loader id="teamDl"/>
+            <collection id="membersDs" property="members"/>
         </instance>
-        <collection id="sportsmenDc" class="com.company.dummy.entity.Sportsman" view="browse">
-            <loader id="sportsmenLc">
-                <query>
-                    <![CDATA[select e from dummy$Sportsman e where e.team = :team]]>
-                </query>
-            </loader>
-        </collection>
-        <collection id="countriesDc" class="com.company.dummy.entity.Country" view="_minimal">
-            <loader id="countriesLc">
-                <query>
-                    <![CDATA[select e from dummy$Country e]]>
-                </query>
-            </loader>
-        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="editActions" spacing="true">
-        <form id="form" dataContainer="teamDc">
-            <column width="250px">
-                <textField id="nameField" property="name"/>
-                <lookupPickerField id="countryField" optionsContainer="countriesDc" property="country">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="open" type="picker_open"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </lookupPickerField>
-                <table id="sportsmenTable" height="100px" width="300px" caption="msg://sportsmenTableCaption"
-                       dataContainer="sportsmenDc">
-                    <columns>
-                        <column id="name"/>
-                        <column id="birthDate"/>
-                        <column id="gender"/>
-                    </columns>
-                </table>
-            </column>
-        </form>
+    <layout expand="editActions" height="100%" spacing="true">
+        <grid id="teamEditGrid"
+              spacing="true"
+              width="100%">
+            <columns count="3"/>
+            <rows>
+                <row>
+                    <groupBox id="identificationGB"
+                              caption="msg://identificationGB"
+                              width="49%"
+                              collapsable="true"
+                              spacing="true">
+                        <form id="form" dataContainer="teamDc">
+                            <column width="280px">
+                                <textField id="nameField" property="name"/>
+                                <pickerField id="countryField" property="country">
+                                    <actions>
+                                        <action id="lookup" type="picker_lookup"/>
+                                        <action id="clear" type="picker_clear"/>
+                                    </actions>
+                                </pickerField>
+                            </column>
+                        </form>
+                    </groupBox>
+                </row>
+                <row>
+                    <groupBox id="membersGB"
+                              caption="msg://membersGB"
+                              collapsable="true"
+                              colspan="2"
+                              spacing="true">
+                        <dataGrid id="membersDataGrid" width="100%"
+                                  height="280px"
+                                  dataContainer="membersDs">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                                <action id="refresh" type="refresh"/>
+                            </actions>
+                            <columns>
+                                <column property="name"/>
+                                <column property="gender"/>
+                                <column property="birthDate"/>
+                            </columns>
+                            <buttonsPanel id="buttonsPanel"
+                                          alwaysVisible="true">
+                                <button id="createBtn" action="membersDataGrid.create"/>
+                                <button id="editBtn" action="membersDataGrid.edit"/>
+                                <button id="removeBtn" action="membersDataGrid.remove"/>
+                            </buttonsPanel>
+                        </dataGrid>
+                    </groupBox>
+                </row>
+            </rows>
+        </grid>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowClose"/>
