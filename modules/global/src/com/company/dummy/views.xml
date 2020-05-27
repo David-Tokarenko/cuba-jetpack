@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="dummy$Judge" name="edit" extends="_local">
+        <property name="sport" view="_minimal"/>
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Judge" name="browse" extends="_local">
+        <property name="sport" view="_minimal"/>
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Sportsman" name="browse" extends="_local">
+        <property name="team" view="_minimal"/>
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Sportsman" name="edit" extends="_local">
+        <property name="team" view="_minimal"/>
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Team" name="browse" extends="_local">
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Team" name="edit" extends="_local">
+        <property name="members" view="_minimal">
+            <property name="birthDate"/>
+            <property name="gender"/>
+        </property>
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Competitor" name="browse" extends="_local">
+        <property name="country" view="_minimal"/>
+    </view>
+    <view entity="dummy$Competition" name="browse" extends="_local">
+        <property name="sport" view="_minimal"/>
+    </view>
+    <view entity="dummy$Competition" name="edit" extends="_local">
+        <property name="judges" view="_minimal">
+            <property name="sport" view="_minimal"/>
+            <property name="country" view="_minimal"/>
+        </property>
+        <property name="sport" view="_local"/>
+        <property name="participants" view="edit"/>
+    </view>
+    <view entity="dummy$Participant" name="browse" extends="_local">
+        <property name="competition" view="_minimal"/>
+        <property name="competitior" view="_minimal"/>
+    </view>
+    <view entity="dummy$Participant" name="edit" extends="_local">
+        <property name="competition" view="_minimal"/>
+        <property name="competitior" view="_minimal"/>
+    </view>
+</views>

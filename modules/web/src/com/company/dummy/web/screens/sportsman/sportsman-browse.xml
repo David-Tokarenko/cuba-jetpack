@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="sportsmenTable"
+        messagesPack="com.company.dummy.web.screens.sportsman">
+    <data readOnly="true">
+        <collection id="sportsmenDc"
+                    class="com.company.dummy.entity.Sportsman"
+                    view="browse">
+            <loader id="sportsmenDl">
+                <query>
+                    <![CDATA[select e from dummy$Sportsman e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="sportsmenTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="sportsmenTable"
+                dataLoader="sportsmenDl">
+            <properties include=".*"/>
+        </filter>
+        <table id="sportsmenTable"
+               width="100%"
+               dataContainer="sportsmenDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="country"/>
+                <column id="birthDate"/>
+                <column id="gender"/>
+                <column id="team"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="sportsmenTable.create"/>
+                <button id="editBtn" action="sportsmenTable.edit"/>
+                <button id="removeBtn" action="sportsmenTable.remove"/>
+                <button id="refreshBtn" action="sportsmenTable.refresh"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

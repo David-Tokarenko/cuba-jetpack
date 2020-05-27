@@ -1,0 +1,23 @@
+-- begin DUMMY_JUDGE
+alter table DUMMY_JUDGE add constraint FK_DUMMY_JUDGE_ON_COUNTRY foreign key (COUNTRY_ID) references DUMMY_COUNTRY(ID)^
+create index IDX_DUMMY_JUDGE_ON_COUNTRY on DUMMY_JUDGE (COUNTRY_ID)^
+-- end DUMMY_JUDGE
+-- begin DUMMY_COUNTRY
+create unique index IDX_DUMMY_COUNTRY_UNQ on DUMMY_COUNTRY (NAME) ^
+-- end DUMMY_COUNTRY
+-- begin DUMMY_COMPETITOR
+alter table DUMMY_COMPETITOR add constraint FK_DUMMY_COMPETITOR_ON_COUNTRY foreign key (COUNTRY_ID) references DUMMY_COUNTRY(ID)^
+create index IDX_DUMMY_COMPETITOR_ON_COUNTRY on DUMMY_COMPETITOR (COUNTRY_ID)^
+-- end DUMMY_COMPETITOR
+-- begin DUMMY_COMPETITION
+alter table DUMMY_COMPETITION add constraint FK_DUMMY_COMPETITION_ON_SPORT foreign key (SPORT_ID) references DUMMY_SPORT(ID)^
+create index IDX_DUMMY_COMPETITION_ON_SPORT on DUMMY_COMPETITION (SPORT_ID)^
+-- end DUMMY_COMPETITION
+-- begin DUMMY_TEAM
+alter table DUMMY_TEAM add constraint FK_DUMMY_TEAM_ON_ID foreign key (ID) references DUMMY_COMPETITOR(ID) on delete CASCADE^
+-- end DUMMY_TEAM
+-- begin DUMMY_SPORTSMAN
+alter table DUMMY_SPORTSMAN add constraint FK_DUMMY_SPORTSMAN_ON_TEAM foreign key (TEAM_ID) references DUMMY_TEAM(ID)^
+alter table DUMMY_SPORTSMAN add constraint FK_DUMMY_SPORTSMAN_ON_ID foreign key (ID) references DUMMY_COMPETITOR(ID) on delete CASCADE^
+create index IDX_DUMMY_SPORTSMAN_ON_TEAM on DUMMY_SPORTSMAN (TEAM_ID)^
+-- end DUMMY_SPORTSMAN

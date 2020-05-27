@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="manager" insertBefore="reference">
+        <item screen="dummy$Competitor.browse"/>
+        <item screen="dummy$Competition.browse"/>
+    </menu>
+    <menu id="reference" insertBefore="administration">
+        <item screen="dummy$Country.browse"/>
+        <item screen="dummy$Sport.browse"/>
+        <item screen="dummy$Judge.browse"/>
+        <item screen="dummy$Sportsman.browse"/>
+        <item screen="dummy$Team.browse"/>
+    </menu>
+
+</menu-config>
