@@ -30,6 +30,7 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
+                <action id="copy"/>
             </actions>
             <columns>
                 <column id="name"/>
@@ -43,6 +44,8 @@
                 <button id="createBtn" action="competitionsTable.create"/>
                 <button id="editBtn" action="competitionsTable.edit"/>
                 <button id="removeBtn" action="competitionsTable.remove"/>
+                <button id="copyButton" action="competitionsTable.copy" icon="COPY"
+                        caption="msg://copyButton" stylename="primary"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

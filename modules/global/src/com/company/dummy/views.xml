@@ -30,12 +30,11 @@
     <view entity="dummy$Competition" name="competition-browse" extends="_local">
         <property name="sport" view="_minimal"/>
     </view>
-    <view entity="dummy$Competition" name="competition-edit" extends="_local">
+    <view entity="dummy$Competition" name="competition-edit" extends="competition-browse">
         <property name="judges" view="_minimal">
             <property name="sport" view="_minimal"/>
             <property name="country" view="_minimal"/>
         </property>
-        <property name="sport" view="_local"/>
         <property name="participants" view="participant-edit"/>
     </view>
     <view entity="dummy$Participant" name="participant-browse" extends="_local">
