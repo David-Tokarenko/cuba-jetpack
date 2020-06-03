@@ -37,7 +37,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </lookupPickerField>
-                <dateField id="birthDateField" property="birthDate"/>
+                <dateField id="birthDateField" property="birthDate" dateFormat="dd:MM:yyyy"/>
                 <lookupField id="genderField" property="gender"/>
                 <lookupPickerField id="teamField" optionsContainer="teamsDc" property="team">
                     <actions>

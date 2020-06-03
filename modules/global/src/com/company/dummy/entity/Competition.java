@@ -1,5 +1,6 @@
 package com.company.dummy.entity;
 
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
@@ -24,6 +25,7 @@ public class Competition extends StandardEntity {
     @ManyToMany
     protected Set<Judge> judges;
 
+    @MetaProperty(datatype = "customDate")
     @Temporal(TemporalType.DATE)
     @Column(name = "DATE_")
     protected Date date;

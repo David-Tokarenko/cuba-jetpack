@@ -16,7 +16,7 @@
         <form id="form" dataContainer="competitionDc">
             <column width="250px">
                 <textField id="nameField" property="name"/>
-                <dateField id="dateField" property="date"/>
+                <dateField id="dateField" property="date" dateFormat="dd:MM:yyyy"/>
                 <pickerField id="sportField" property="sport">
                     <actions>
                         <action id="lookup" type="picker_lookup"/>

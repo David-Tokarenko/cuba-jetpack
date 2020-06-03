@@ -1,5 +1,6 @@
 package com.company.dummy.entity;
 
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 public class Sportsman extends Competitor {
     private static final long serialVersionUID = 5863494888246662272L;
 
+    @MetaProperty(datatype = "customLocalDate")
     @Column(name = "BIRTH_DATE")
     protected LocalDate birthDate;
 
