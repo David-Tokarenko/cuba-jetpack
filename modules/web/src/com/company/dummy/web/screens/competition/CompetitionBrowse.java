@@ -4,6 +4,7 @@ package com.company.dummy.web.screens.competition;
 import com.haulmont.chile.core.model.MetaClass;
 import com.haulmont.chile.core.model.MetaProperty;
 import com.haulmont.chile.core.model.Session;
+import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.components.GroupTable;
@@ -23,6 +24,8 @@ public class CompetitionBrowse extends StandardLookup<Competition> {
     @Inject
     private Metadata metadata;
     @Inject
+    private DataManager dataManager;
+    @Inject
     private GroupTable<Competition> competitionsTable;
     @Inject
     private CollectionContainer<Competition> competitionsDc;
@@ -41,6 +44,7 @@ public class CompetitionBrowse extends StandardLookup<Competition> {
                             false);
             }
             competitionsDc.getMutableItems().add(copyCompetition);
+            dataManager.commit(copyCompetition);
         }
     }
 }
