@@ -3,6 +3,7 @@
     <menu id="manager" insertBefore="reference">
         <item screen="dummy$Competitor.browse"/>
         <item screen="dummy$Competition.browse"/>
+        <item screen="dummy_Statistics"/>
     </menu>
     <menu id="reference" insertBefore="administration">
         <item screen="dummy$Country.browse"/>
